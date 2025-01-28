@@ -51,7 +51,8 @@ process PARABRICKS_FQ2BAM {
         ${interval_file_command} \\
         --num-gpus ${task.accelerator.request} \\
         --tmp-dir . \\
-        ${args}
+        ${args} \\
+        --monitor-usage
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
