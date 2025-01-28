@@ -52,7 +52,10 @@ process PARABRICKS_FQ2BAM {
         --num-gpus ${task.accelerator.request} \\
         --tmp-dir . \\
         ${args} \\
-        --monitor-usage
+        --monitor-usage \\
+        --bwa-cpu-thread-pool 16 \\
+        --gpusort \\
+        --gpuwrite
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
